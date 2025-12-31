@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Informatika X IPA 2</title>
+        <link rel="icon" href="https://bmw.astra.co.id/wp-content/uploads/2023/07/BMW.svg_.png" type="image/x-icon">
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: rgb(213, 244, 249);
+                transition: background-color 0.9s ease, color 0.9s ease
+                
+            }
+
+            li {
+                text-align: center;
+            }
+            
+            .container {
+                width: 600px;
+                margin: 50px auto;
+                background: rgb(233, 250, 253);
+                padding: 25px;
+                border-radius: 12px;
+                box-shadow: 0 2px 12px rgb(54, 158, 142);
+                text-align: center;
+                flex: 1;
+                overflow-y: auto;
+                transition: background-color 0.9s ease, color 0.9s ease
+            }
+
+            .Foto img {
+                width: 205px;
+                height: 205px;
+                border-radius: 100%;
+                object-fit: cover;
+                border: 6px solid rgba(197, 247, 255, 0.527);
+                margin-bottom: 15px;
+                transition: transform 0.5s, box-shadow 0.5s;
+            }
+
+            .Foto img:hover {
+                transform: scale(1.15);
+                box-shadow: 0px 4px 8px #00000090;
+            }
+
+            h1 {
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .section-title {
+            background-color: rgb(136, 226, 240);
+            color: black;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.9s ease, color 0.9s ease
+
+        }
+        
+        .thx {
+            background-color: rgb(203, 239, 245);
+            color: black;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 20px;
+            font-weight: bold;
+            border: 8px black;
+            transition: background-color 0.9s ease, color 0.9s ease;
+            font-size: 15px;
+            font-style: italic;
+
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+
+        }
+
+        td {
+            padding: 8px;
+            border-bottom: 1px solid #d8d6d6;
+            text-align: left;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            width: 40%;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #000000;
+            text-align: left;
+            transition: background-color 0.9s ease, color 0.9s ease
+        }
+
+        .Topbar {
+            background-color: rgb(179, 229, 237);
+            color: #158692;
+            padding: 15px 20px;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.9s ease, color 0.9s ease;
+            ;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.215);
+
+        }
+
+        .Topbar img {
+            height: 40px;
+            border-radius: 12px;
+        }
+
+        .toggle-btn {
+            background: whitesmoke;
+            color: #158692;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s;
+            
+        }
+
+        .toggle-btn:hover {
+            background: #158692;
+            color: whitesmoke;
+            box-shadow: 0 2px 8px black;
+        }
+
+        .Topbar nav a {
+            color: #158692;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+           }
+
+           .Topbar nav a:hover,
+           .topbar nav a.aktif {
+            background: white;
+            color: #158692;
+            box-shadow: 0 2px 8px black;
+
+           }
+
+
+        body.dark {
+            background: rgb(0, 70, 84);
+            color: #f1f1f1;
+        }
+
+        body.dark .container {
+            background: rgb(0, 44, 52);
+            color: #f1f1f1;
+        }
+
+        body.dark .section-title {
+            background: rgb(0, 76, 90);
+            color: white;
+        }
+
+        body.dark .thx {
+            background: rgb(0, 97, 114);
+            color: white;
+        }
+
+        body.dark .Topbar {
+            background: rgb(0, 76, 90);
+            color: white;
+        }
+
+        body.dark ul {
+            color: white;
+        }
+
+        body.dark ul li {
+            color: white;
+        }
+
+        body.dark nav a {
+            color: white;
+            transition: color 0.9s ease, color 0.9s ease;
+            
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .fullpage {
+            width: 100%;
+            flex: 1;
+            padding: 30px 50px;
+            animation: fadeIn 0.6s ease;
+        }
+
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+        
+        </style>
+    </head>
+    <body>
+        <div class="Topbar">
+            <div class="logo">SMAIT AL KAHFI</div>
+            <div class="right-menu"></div>
+            <nav>
+                <a class="aktif" onclick="tampilkanHalaman('home', this)">Home</a>
+                <a onclick="tampilkanHalaman('artikel', this)">Artikel</a>
+                <a onclick="tampilkanHalaman('galeri', this)">Galeri</a>
+            </nav>
+            <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+        </div>
+
+        <div id="home" class="container">
+        <div class="Foto">
+            <img src="https://scontent-cgk1-2.cdninstagram.com/v/t51.2885-19/603964970_18011138099811031_3270705005949532930_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=scontent-cgk1-2.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2QHzGAZPNL5fMBQBm0zl5D3zPaeP4D5_jrhpwKAoUNBPhQRsK_gH_gNewkngfYn02ZY&_nc_ohc=t-A-3vrLqgEQ7kNvwGi_xxt&_nc_gid=XXlQLKfoPTqX0zofYfzS9g&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Afna8K-6PGmGPWcL5Q1nzmWucmaMNs2toFK1g_IB_pfeUg&oe=695A36B2&_nc_sid=7a9f4b"Foto Profil">
+        </div>
+        <h1>Selamat Datang Di Blog Saya</h1>
+        <h2>Biodata Saya</h2>
+        <table>
+        <div class="section-title">Informasi Pribadi</div>
+            <tr>
+                <td>Nama :</td>
+                <td>Zaim Mudaafiul Aqsho</td>
+            </tr>
+            <tr>
+                <td>TTL :</td><td>Bekasi, 1 Mei 2010</td>
+            </tr>
+            <tr>
+                <td>Alamat :</td><td>Jl. Muara Tegal No. 130 Tajur, Bogor</td>
+            </tr>
+
+        </table>
+
+        <div class="section-title">Pendidikan</div>
+        <ul><p>
+            <li>TKIT Permata Bunda</li>
+            <li>SDIT Permata Bunda</li>
+            <li>SMPIT Al Kahfi</li>
+            <li>SMAIT Al Kahfi</li>
+        </p></ul>
+
+        <div class="section-title">Minat & Hobi</div>
+        <ul><p>
+            <li>Fotografi</li>
+            <li>Videografi</li>
+            <li>Desain Grafis</li>
+            <li>Basket</li>
+            
+        </p></ul>
+
+        <div class="thx">
+            <marquee behavior="scroll" direction="left">
+                Terima Kasih Sudah Mengunjungi Blog Saya!!
+            </marquee>
+        </div>
+       
+
+        <div id="artikel" class="fullpage hidden">
+            <h2>Artikel Saya</h2>
+            <div id="daftarArtikel">
+                <article>
+                    <h3>Roti Bohay</h3>
+                    <p>Roti Bohay adalah roti terenak sejagat raya yang dibuat dengan cinta. semak semak semok semok semok semok momomok mmk</p>
+                </article>
+            </div>
+        </div>
+
+        <div id="galeri" class="fullpage hidden">
+            <h2>Galeri Foto</h2>
+            <p>Foto-foto berkelas bakal ditampilin di sini.</p>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1609607847926-da4702f01fef?auto=format&fit=crop&w=693&q=80" alt="Foto 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1595434465025-2bc11161fdf4?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjYzMTh8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=80&w=1080" alt="Foto 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1583582228993-9b2831efb890?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg0OXwwfDF8c2VhcmNofDJ8fGZvcmVzdHxlbnwwfHx8fDE2NTkwMDA0Mzg&ixlib=rb-1.2.1&q=80&w=1080" alt="Foto 3">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1534519347638-0be62b99d8d4?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg0OXwwfDF8c2VhcmNofDJ8fGZvcmVzdHxlbnwwfHx8fDE2NTkwMDA0Mzg&ixlib=rb-1.2.1&q=80&w=1080" alt="Foto 4">
+            </div>
+        </div>
+    </div>
+
+
+
+    </body>
+
+    <script>
+        function toggleDarkMode() {
+    document.body.classList.toggle('dark');
+    const btn = document.querySelector('.toggle-btn');
+    if (document.body.classList.contains('dark')) {  
+        btn.textContent = '⛅';
+    } else {
+        btn.textContent = '🌙';
+    }
+}
+function tampilkanHalaman(id, el) {
+      document.querySelectorAll('.container, .fullpage').forEach(c => c.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+      document.querySelectorAll('.topbar nav a').forEach(a => a.classList.remove('aktif'));
+      el.classList.add('aktif');
+    }   
+   
+    </script>
+
+    
+</html>
