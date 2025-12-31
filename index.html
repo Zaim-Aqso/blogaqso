@@ -23,6 +23,7 @@
             box-shadow: 0 2px 12px rgb(54, 158, 142);
             text-align: center;
             transition: background-color 0.9s ease, color 0.9s ease;
+            animation: fadeIn 0.6s ease-out;
         }
 
         .hidden {
@@ -93,7 +94,8 @@
         
             h1 {
     text-align: center;
-    margin-bottom: 5px; /* Jarak bawah diperkecil */
+    margin-bottom: 5px;
+    margin-top: 2px;
 }
 
 h2 {
@@ -210,6 +212,19 @@ h2 {
             color: whitesmoke;
             box-shadow: 0 2px 8px black;
         }
+
+        @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Muncul sedikit dari bawah */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
         
     </style>
 </head>
@@ -286,18 +301,24 @@ h2 {
         }
 
         function tampilkanHalaman(id, el) {
-            // Sembunyikan semua container
-            const allPages = document.querySelectorAll('.container');
-            allPages.forEach(page => page.classList.add('hidden'));
+    const allPages = document.querySelectorAll('.container');
+    allPages.forEach(page => {
+        page.classList.add('hidden');
+        page.style.animation = 'none'; // Reset animasi
+    });
 
-            // Tampilkan yang diklik
-            document.getElementById(id).classList.remove('hidden');
+    const activePage = document.getElementById(id);
+    activePage.classList.remove('hidden');
+    
+    // Trigger ulang animasi setelah jeda super singkat
+    setTimeout(() => {
+        activePage.style.animation = 'fadeIn 0.6s ease-out';
+    }, 10);
 
-            // Update menu aktif (Gunakan .Topbar sesuai HTML)
-            const allLinks = document.querySelectorAll('.Topbar nav a');
-            allLinks.forEach(link => link.classList.remove('aktif'));
-            el.classList.add('aktif');
-        }
+    const allLinks = document.querySelectorAll('.Topbar nav a');
+    allLinks.forEach(link => link.classList.remove('aktif'));
+    el.classList.add('aktif');
+}
     </script>
 </body>
 </html>
